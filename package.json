@@ -37,5 +37,20 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "description": "hci-prototype =============",
+  "main": "app/scripts/web-server.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/admitriyev/hci-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/admitriyev/hci-prototype/issues"
+  },
+  "homepage": "https://github.com/admitriyev/hci-prototype"
 }
