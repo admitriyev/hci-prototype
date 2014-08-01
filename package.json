@@ -4,7 +4,8 @@
   "dependencies": {
      "express": "4.x",
      "logfmt": "1.x",
-     "jade": "1.x"
+     "jade": "1.x",
+     "gzippo": "0.x"
     },
   "devDependencies": {
     "grunt": "^0.4.1",
@@ -43,7 +44,7 @@
     "test": "grunt test"
   },
   "description": "hci-prototype =============",
-  "main": "app/scripts/web-server.js",
+  "main": "web.js",
   "directories": {
     "test": "test"
   },
