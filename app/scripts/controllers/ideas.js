@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name hciApp.controller:MainCtrl
+ * @name hciApp.controller:IdeasCtrl
  * @description
- * # MainCtrl
+ * # IdeasCtrl
  * Controller of the hciApp
  */
 angular.module('hciApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('IdeasCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
