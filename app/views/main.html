@@ -1,35 +1,106 @@
 <div class="row">
-    <div class="col-xs-12">
-  		<h4>What is your idea?</h4>
+    <div class="col-xs-12 text-center">
+        <alert type="info" close="closeAlert()" ng-show="showAlert==true">Start filling out your idea:</alert>
   	</div>
  </div>
 
-<div class="row">
+<div class="row voffset2" ng-if="textWizard==true">
+    <div class="col-xs-6">
+        My idea is to develop a:
+    </div>
+    <div class="col-xs-6">
+        <input type="text" class="form-control"
+            placeholder="mobile application" tooltip="The most relevant choices will be suggested as you type"></input>
+    </div>    
+</div>
+
+<div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-    	<input type="checkbox">Profitable</input>
+        <textarea class="form-control" placeholder="for iOS and Android phones"
+            tooltip="Enter free form text"></textarea>
+    </div>    
+</div>
+
+<div class="row voffset2" ng-if="textWizard==true">
+    <div class="col-xs-6">
+        to help 
+    </div>
+    <div class="col-xs-6">
+        <input type="text" class="form-control" placeholder="creative people"
+            tooltip="The most relevant choices will be suggested as you type"></input>
+    </div>    
+</div>
+
+<div class="row voffset2" ng-if="textWizard==true">
+    <div class="col-xs-6">
+        solve a problem
     </div>
 </div>
 
-<div class="row">
+<div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-    	<input type="checkbox">Technology</input>
+        <textarea class="form-control" placeholder="write down their ideas quickly"
+            tooltip="Enter free form text"></textarea>
+    </div>    
+</div>
+
+<div class="row voffset2" ng-if="textWizard==true">
+    <div class="col-xs-6">
+        with (secret sauce)
     </div>
 </div>
 
-<div class="row">
+<div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-    	<input type="checkbox" class="">Global</input>
+        <textarea class="form-control" placeholder="using mad libs template"
+            tooltip="Enter free form text"></textarea>
+    </div>    
+</div>
+
+<div class="row voffset1" ng-if="textWizard==false">
+    <div class="col-xs-12">
+        <textarea class="form-control" placeholder="ideas description" rows="8"
+            tooltip="Enter free form text"></textarea>
+    </div>    
+</div>
+
+<div class="row voffset2">
+    <div class="col-xs-8">
+    </div>
+    <div class="col-xs-4">
+        <button type="button" class="form-control btn btn-xs btn-default"  ng-click="toggleEditor()">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span ng-show="textWizard==true">Switch to plain text editor</span>
+            <span ng-show="textWizard==false">Switch to Wizard editor</span>
+        </button>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-12">
-    	<button type="button" class="form-control btn btn-sm btn-default" ng-click="ideaDetails()">Enter Idea Details</button>
+<div class="row voffset3">
+    <div class="col-xs-6">
+        <button type="button" class="form-control btn btn-md btn-success" ng-click="saveIdea()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save Idea
+        </button>
+    </div>
+    <div class="col-xs-6">
+        <button type="button" class="form-control btn btn-md btn-warning"  ng-click="startOver()">
+            <span class="glyphicon glyphicon-refresh"></span>
+            Cancel and start over
+        </button>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-xs-12">
-    	<button type="button" class="form-control btn btn-sm btn-default">My Previous Ideas</button>
+<div class="row voffset2">
+    <div class="col-xs-6">
+    	<button type="button" class="form-control btn btn-md btn-default" ng-click="trainWizard()">
+            <span class="glyphicon glyphicon-wrench"></span>
+            Train Idea Wizard
+        </button>
+    </div>
+    <div class="col-xs-6">
+    	<button type="button" class="form-control btn btn-md btn-default"  ng-click="listIdeas()">
+            <span class="glyphicon glyphicon-list"></span>
+            Saved Ideas
+        </button>
     </div>
 </div>

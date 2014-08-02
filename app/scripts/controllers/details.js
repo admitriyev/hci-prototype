@@ -8,10 +8,9 @@
  * Controller of the hciApp
  */
 angular.module('hciApp')
-  .controller('DetailsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('DetailsCtrl', ['$scope','$http','$location', function ($scope,$http,$location) {
+
+		$scope.startOver = function() {
+			$location.path('/')
+		};
+  }]);
