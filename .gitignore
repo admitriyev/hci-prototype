@@ -27,4 +27,4 @@ node_modules
 # dist -- need this to deploy to heroku
 .tmp
 .sass-cache
-bower_components
+/bower_components
