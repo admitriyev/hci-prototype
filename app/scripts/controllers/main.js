@@ -33,7 +33,7 @@ angular.module('hciApp')
 		$scope.startOver = function() {
 		    var modalInstance = $modal.open({
 		      templateUrl: 'promptModal.html',
-		      controller: 'ModalInstanceCtrl',
+		      controller: 'resetModalCtrl',
 		      size: 'sm',
 		      resolve: {
 		        items: function () {
@@ -49,11 +49,33 @@ angular.module('hciApp')
 		    });
 		};
 
+		$scope.saveIdea = function() {
+		    var modalInstance = $modal.open({
+		      templateUrl: 'saveModal.html',
+		      controller: 'saveModalCtrl',
+		      size: 'sm',
+		      resolve: {
+		        items: function () {
+		          return $scope.items;
+		        }
+		      }
+		    });
+
+		    modalInstance.result.then(function (selectedItem) {
+		      $scope.selected = selectedItem;
+		    }, function () {
+		      	//$log.info('Modal dismissed at: ' + new Date());
+				$location.path('/ideas')
+		    });
+		};
+
+
   	}]);
 
-//var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+// --- RESET
+//var resetModalCtrl = function ($scope, $modalInstance, items) {
 angular.module('hciApp')
-    .controller('ModalInstanceCtrl', ['$scope','$modalInstance', 'items', function ($scope,$modalInstance,items) {
+    .controller('resetModalCtrl', ['$scope','$modalInstance', 'items', function ($scope,$modalInstance,items) {
 
 	  $scope.items = items;
 	  $scope.selected = {
@@ -66,6 +88,25 @@ angular.module('hciApp')
 
 	  $scope.cancel = function () {
 	    $modalInstance.dismiss('cancel');
+	  };
+
+	}]);
+
+// --- SAVE
+angular.module('hciApp')
+    .controller('saveModalCtrl', ['$scope','$modalInstance', 'items', function ($scope,$modalInstance,items) {
+
+	  $scope.items = items;
+	  $scope.selected = {
+	    //item: $scope.items[0]
+	  };
+
+	  $scope.list = function () {
+	    $modalInstance.dismiss('list');
+	  };
+
+	  $scope.reset = function () {
+	    $modalInstance.close($scope.selected.item);
 	  };
 
 	}]);

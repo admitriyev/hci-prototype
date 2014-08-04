@@ -9,10 +9,27 @@
 
   </div>
   <div class="modal-footer">
-      <button class="btn btn-warning" ng-click="cancel()">No, don't do anything</button>
-      <button class="btn btn-sm btn-danger" ng-click="save()">Yes, clear and start over</button>
+      <button class="btn btn-warning" ng-click="cancel()">No, don not do anything</button>
+      <button class="btn btn-sm btn-danger" ng-click="ok()">Yes, clear and start over</button>
   </div>
 </script>
+
+<!-- Modal Save window -->
+<script type="text/ng-template" id="saveModal.html">
+  <div class="modal-header">
+    <h4>Message</h4>
+  </div>
+  <div class="modal-body">
+
+  Your idea has been saved. Would you like to start another oner or see the list of save ideas?
+
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-success" ng-click="list()">See list of ideas</button>
+      <button class="btn btn-success" ng-click="reset()">Start another idea</button>
+  </div>
+</script>
+
 
 <!-- Main content area -->
 <div class="row">
