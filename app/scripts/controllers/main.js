@@ -33,7 +33,7 @@ angular.module('hciApp')
 		$scope.startOver = function() {
 		    var modalInstance = $modal.open({
 		      templateUrl: 'promptModal.html',
-		      controller: ModalInstanceCtrl,
+		      controller: 'ModalInstanceCtrl',
 		      size: 'sm',
 		      resolve: {
 		        items: function () {
@@ -51,18 +51,21 @@ angular.module('hciApp')
 
   	}]);
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+//var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+angular.module('hciApp')
+    .controller('ModalInstanceCtrl', ['$scope','$modalInstance', 'items', function ($scope,$modalInstance,items) {
 
-  $scope.items = items;
-  $scope.selected = {
-    //item: $scope.items[0]
-  };
+	  $scope.items = items;
+	  $scope.selected = {
+	    //item: $scope.items[0]
+	  };
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
+	  $scope.ok = function () {
+	    $modalInstance.close($scope.selected.item);
+	  };
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-};
+	  $scope.cancel = function () {
+	    $modalInstance.dismiss('cancel');
+	  };
+
+	}]);
