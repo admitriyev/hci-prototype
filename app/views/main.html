@@ -32,6 +32,11 @@
 
 
 <!-- Main content area -->
+<div class="header text-center">
+    <h4 ng-show="textWizard==true">Idea Saver | New Idea | Wizard Mode</h4>
+    <h4 ng-show="textWizard==false">Idea Saver | New Idea | Plain Mode</h4>
+</div>
+
 <div class="row">
     <div class="col-xs-12 text-center">
         <alert type="info" close="closeAlert()" ng-show="showAlert==true">Start filling out your idea:</alert>
@@ -123,7 +128,8 @@
         </button>
     </div>
     <div class="col-xs-6">
-    	<button type="button" class="form-control btn btn-md btn-default"  ng-click="listIdeas()">
+    	<button type="button" class="form-control btn btn-md btn-default"  ng-click="listIdeas()"
+            tooltip="List saved ideas">
             <span class="glyphicon glyphicon-list"></span>
             Saved Ideas
         </button>
@@ -131,10 +137,15 @@
 </div>
 <div class="row voffset2">
     <div class="col-xs-6">
-        <button type="button" class="form-control btn btn-md btn-default"  ng-click="toggleEditor()">
+        <button type="button" class="form-control btn btn-md btn-default"  ng-click="toggleEditor()"
+            tooltip="Switch to plain text editor" ng-show="textWizard==true">
             <span class="glyphicon glyphicon-edit"></span>
-            <span ng-show="textWizard==true">Switch to text editor</span>
-            <span ng-show="textWizard==false">Switch to Wizard editor</span>
+            <span>Switch to text</span>
+        </button>
+        <button type="button" class="form-control btn btn-md btn-default"  ng-click="toggleEditor()"
+            tooltip="Switch to Wizard editor" ng-show="textWizard==false">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span>Switch to Wiazard</span>
         </button>
     </div>
 </div>
