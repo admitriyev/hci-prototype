@@ -10,7 +10,14 @@
 angular.module('hciApp')
   .controller('IdeasCtrl', ['$scope','$http','$location', function ($scope,$http,$location) {
 
+    	$scope.showAlert = true
+
 		$scope.startOver = function() {
 			$location.path('/')
 		};
+
+		$scope.closeAlert = function() {
+    		$scope.showAlert = false
+		};
+		
   }]);
