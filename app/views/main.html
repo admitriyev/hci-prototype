@@ -21,7 +21,7 @@
   </div>
   <div class="modal-body">
 
-  Your idea has been saved. Would you like to start another oner or see the list of save ideas?
+  Your idea has been saved. Would you like to start another oner or see the list of saved ideas?
 
   </div>
   <div class="modal-footer">
@@ -33,13 +33,13 @@
 
 <!-- Main content area -->
 <div class="header text-center">
-    <h4 ng-show="textWizard==true">Idea Saver | New Idea | Wizard Mode</h4>
-    <h4 ng-show="textWizard==false">Idea Saver | New Idea | Plain Mode</h4>
+    <h4>Idea Saver | {{ editModeLabel }} Idea | {{ wizardModeLabel }} Mode</h4>
 </div>
 
 <div class="row">
     <div class="col-xs-12 text-center">
-        <alert type="info" close="closeAlert()" ng-show="showAlert==true">Start filling out your idea:</alert>
+        <alert type="info" close="closeAlert()" ng-show="showAlert==true && editMode==false">Start filling out your idea:</alert>
+        <alert type="info" close="closeAlert()" ng-show="showAlert==true && editMode==true">Edit out your idea:</alert>
   	</div>
  </div>
 
@@ -48,14 +48,14 @@
         My idea is to develop a:
     </div>
     <div class="col-xs-6">
-        <input type="text" class="form-control"
+        <input type="text" class="form-control" ng-model="ideaData.technology"
             placeholder="mobile application" tooltip="The most relevant choices will be suggested as you type"></input>
     </div>    
 </div>
 
 <div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="for iOS and Android phones"
+        <textarea class="form-control" placeholder="for iOS and Android phones"  ng-model="ideaData.techDetails"
             tooltip="Enter free form text"></textarea>
     </div>    
 </div>
@@ -65,7 +65,7 @@
         to help 
     </div>
     <div class="col-xs-6">
-        <input type="text" class="form-control" placeholder="creative people"
+        <input type="text" class="form-control" placeholder="creative people"  ng-model="ideaData.purpose"
             tooltip="The most relevant choices will be suggested as you type"></input>
     </div>    
 </div>
@@ -78,7 +78,7 @@
 
 <div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="write down their ideas quickly"
+        <textarea class="form-control" placeholder="write down their ideas quickly"  ng-model="ideaData.problem"
             tooltip="Enter free form text"></textarea>
     </div>    
 </div>
@@ -91,14 +91,14 @@
 
 <div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="using mad libs template"
+        <textarea class="form-control" placeholder="using mad libs template"  ng-model="ideaData.sauce"
             tooltip="Enter free form text"></textarea>
     </div>    
 </div>
 
 <div class="row voffset1" ng-if="textWizard==false">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="ideas description" rows="8"
+        <textarea class="form-control" placeholder="ideas description" rows="8"  ng-model="ideaData.plainDescription"
             tooltip="Enter free form text"></textarea>
     </div>    
 </div>

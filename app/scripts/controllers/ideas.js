@@ -12,12 +12,16 @@ angular.module('hciApp')
 
     	$scope.showAlert = true
 
+		$scope.startEdit = function() {
+			$location.path('/main/edit')
+		};
+
 		$scope.startOver = function() {
-			$location.path('/')
+			$location.path('/main')
 		};
 
 		$scope.closeAlert = function() {
     		$scope.showAlert = false
 		};
-		
+
   }]);

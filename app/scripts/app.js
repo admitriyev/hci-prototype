@@ -20,7 +20,11 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/main', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/main/:mode', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -37,6 +41,6 @@ angular
         controller: 'DetailsCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
       });
   });

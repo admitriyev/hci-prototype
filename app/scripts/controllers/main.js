@@ -9,10 +9,27 @@
  */
 angular.module('hciApp')
 
-    .controller('MainCtrl', ['$scope','$http','$location', '$modal', function ($scope,$http,$location,$modal) {
+    .controller('MainCtrl', ['$scope','$http','$location', '$modal', '$routeParams', function ($scope,$http,$location,$modal,$routeParams) {
 
+    	$scope.ideaData = {}
     	$scope.showAlert = true
     	$scope.textWizard = true
+    	$scope.wizardModeLabel = 'Wizard'
+    	$scope.editMode = ($routeParams.mode == 'edit')
+    	if ($scope.editMode == true) {
+    		$scope.editModeLabel = 'Edit'
+    	} else {
+    		$scope.editModeLabel = 'New'
+    	}
+
+    	var clearForm = function() {
+    		$scope.ideaData.technology = null
+    		$scope.ideaData.techDetails = null
+    		$scope.ideaData.purpose = null
+    		$scope.ideaData.problem = null
+    		$scope.ideaData.sauce = null
+    		$scope.ideaData.plainDescription = null
+    	}
 
 		$scope.trainWizard = function() {
 			$location.path('/details')
@@ -45,7 +62,8 @@ angular.module('hciApp')
 		    modalInstance.result.then(function (selectedItem) {
 		      $scope.selected = selectedItem;
 		    }, function () {
-		      $log.info('Modal dismissed at: ' + new Date());
+		      //$log.info('Modal dismissed at: ' + new Date());
+		      clearForm()
 		    });
 		};
 
@@ -62,6 +80,7 @@ angular.module('hciApp')
 		    });
 
 		    modalInstance.result.then(function (selectedItem) {
+		      clearForm()
 		      $scope.selected = selectedItem;
 		    }, function () {
 		      	//$log.info('Modal dismissed at: ' + new Date());
@@ -83,11 +102,11 @@ angular.module('hciApp')
 	  };
 
 	  $scope.ok = function () {
-	    $modalInstance.close($scope.selected.item);
+	    $modalInstance.dismiss('reset');
 	  };
 
 	  $scope.cancel = function () {
-	    $modalInstance.dismiss('cancel');
+	    $modalInstance.close($scope.selected.item);
 	  };
 
 	}]);
