@@ -11,40 +11,40 @@ angular.module('hciApp')
 
     .controller('MainCtrl', ['$scope','$http','$location', '$modal', '$routeParams', function ($scope,$http,$location,$modal,$routeParams) {
 
-    	$scope.ideaData = {}
-    	$scope.showAlert = true
-    	$scope.textWizard = true
-    	$scope.wizardModeLabel = 'Wizard'
-    	$scope.editMode = ($routeParams.mode == 'edit')
-    	if ($scope.editMode == true) {
-    		$scope.editModeLabel = 'Edit'
+    	$scope.ideaData = {};
+    	$scope.showAlert = true;
+    	$scope.textWizard = true;
+    	$scope.wizardModeLabel = 'Wizard';
+    	$scope.editMode = ($routeParams.mode === 'edit');
+    	if ($scope.editMode === true) {
+    		$scope.editModeLabel = 'Edit';
     	} else {
-    		$scope.editModeLabel = 'New'
+    		$scope.editModeLabel = 'New';
     	}
 
     	var clearForm = function() {
-    		$scope.ideaData.technology = null
-    		$scope.ideaData.techDetails = null
-    		$scope.ideaData.purpose = null
-    		$scope.ideaData.problem = null
-    		$scope.ideaData.sauce = null
-    		$scope.ideaData.plainDescription = null
-    	}
+    		$scope.ideaData.technology = null;
+    		$scope.ideaData.techDetails = null;
+    		$scope.ideaData.purpose = null;
+    		$scope.ideaData.problem = null;
+    		$scope.ideaData.sauce = null;
+    		$scope.ideaData.plainDescription = null;
+    	};
 
 		$scope.trainWizard = function() {
-			$location.path('/details')
+			$location.path('/details');
 		};
   
 		$scope.listIdeas = function() {
-			$location.path('/ideas')
+			$location.path('/ideas');
 		};
 
 		$scope.closeAlert = function() {
-    		$scope.showAlert = false
+    		$scope.showAlert = false;
 		};
 
 		$scope.toggleEditor = function() {
-			$scope.textWizard = !$scope.textWizard
+			$scope.textWizard = !$scope.textWizard;
 		};
 
 		$scope.startOver = function() {
@@ -63,7 +63,7 @@ angular.module('hciApp')
 		      $scope.selected = selectedItem;
 		    }, function () {
 		      //$log.info('Modal dismissed at: ' + new Date());
-		      clearForm()
+		      clearForm();
 		    });
 		};
 
@@ -80,11 +80,11 @@ angular.module('hciApp')
 		    });
 
 		    modalInstance.result.then(function (selectedItem) {
-		      clearForm()
+		      clearForm();
 		      $scope.selected = selectedItem;
 		    }, function () {
 		      	//$log.info('Modal dismissed at: ' + new Date());
-				$location.path('/ideas')
+				$location.path('/ideas');
 		    });
 		};
 

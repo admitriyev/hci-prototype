@@ -10,18 +10,18 @@
 angular.module('hciApp')
   .controller('IdeasCtrl', ['$scope','$http','$location', function ($scope,$http,$location) {
 
-    	$scope.showAlert = true
+    	$scope.showAlert = true;
 
 		$scope.startEdit = function() {
-			$location.path('/main/edit')
+			$location.path('/main/edit');
 		};
 
 		$scope.startOver = function() {
-			$location.path('/main')
+			$location.path('/main');
 		};
 
 		$scope.closeAlert = function() {
-    		$scope.showAlert = false
+    		$scope.showAlert = false;
 		};
 
   }]);
