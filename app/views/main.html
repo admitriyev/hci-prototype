@@ -44,55 +44,51 @@
  </div>
 
 <div class="row voffset2" ng-if="textWizard==true">
-    <div class="col-xs-6">
-        My idea is to develop a:
-    </div>
-    <div class="col-xs-6">
-        <input type="text" class="form-control" ng-model="ideaData.technology"
-            placeholder="mobile application" tooltip="The most relevant choices will be suggested as you type"></input>
+    <div class="col-xs-12">
+        <md-input-container flex>
+            <label>My idea is to develop a (mobile application):</label>
+            <input type="text" ng-model="ideaData.technology" tooltip="The most relevant choices will be suggested as you type">
+            </input>
+        </md-input-container>
     </div>    
 </div>
 
 <div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="for iOS and Android phones"  ng-model="ideaData.techDetails"
-            tooltip="Enter free form text"></textarea>
+        <md-input-container flex>
+            <textarea class="form-control" placeholder="for iOS and Android phones"  ng-model="ideaData.techDetails"
+                tooltip="Enter free form text"></textarea>
+        </md-input-container>
     </div>    
 </div>
 
 <div class="row voffset2" ng-if="textWizard==true">
-    <div class="col-xs-6">
-        to help 
-    </div>
-    <div class="col-xs-6">
-        <input type="text" class="form-control" placeholder="creative people"  ng-model="ideaData.purpose"
-            tooltip="The most relevant choices will be suggested as you type"></input>
-    </div>    
-</div>
-
-<div class="row voffset2" ng-if="textWizard==true">
-    <div class="col-xs-6">
-        solve a problem
-    </div>
-</div>
-
-<div class="row voffset1" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="write down their ideas quickly"  ng-model="ideaData.problem"
-            tooltip="Enter free form text"></textarea>
+        <md-input-container flex>
+            <label>to help (creative people)</label>
+            <input type="text" class="form-control"ng-model="ideaData.purpose"
+                tooltip="The most relevant choices will be suggested as you type"></input>
+        </md-input-container>
     </div>    
 </div>
 
 <div class="row voffset2" ng-if="textWizard==true">
-    <div class="col-xs-6">
-        with (secret sauce)
-    </div>
+    <div class="col-xs-12">
+        <md-input-container flex>
+            <label>solve a problem (write down their ideas quickly)</label>
+            <textarea class="form-control" ng-model="ideaData.problem"
+                tooltip="Enter free form text"></textarea>
+        </md-input-container>
+    </div>    
 </div>
 
-<div class="row voffset1" ng-if="textWizard==true">
+<div class="row voffset2" ng-if="textWizard==true">
     <div class="col-xs-12">
-        <textarea class="form-control" placeholder="using mad libs template"  ng-model="ideaData.sauce"
-            tooltip="Enter free form text"></textarea>
+        <md-input-container flex>
+            <label>with secret sauce (using mad libs template)</label>
+            <textarea class="form-control" ng-model="ideaData.sauce"
+                tooltip="Enter free form text"></textarea>
+        </md-input-container>
     </div>    
 </div>
 

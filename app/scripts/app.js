@@ -44,4 +44,9 @@ angular
       .otherwise({
         redirectTo: '/main'
       });
+  })
+  .config(function($mdThemingProvider) {
+    //will use the colors from default theme for any color not defined.
+    $mdThemingProvider.theme('orange')
+      .primaryColor('orange');
   });
